@@ -42,6 +42,14 @@ module.exports = {
             },
         ],
         'jsx-a11y/click-events-have-key-events': 0,
+        'jsx-a11y/label-has-associated-control': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
     },
     settings: {
         'import/parsers': {
