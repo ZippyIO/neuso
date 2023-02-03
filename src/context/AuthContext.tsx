@@ -1,6 +1,7 @@
 import { User } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../utils/firebase';
+import { auth, firestore } from '../utils/firebase';
 
 type Props = {
     children: React.ReactNode;
@@ -16,8 +17,13 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+        const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
             setUser(firebaseUser);
+            if (firebaseUser) {
+                const userDoc = doc(firestore, 'users', firebaseUser.uid);
+                const snapshot = await getDoc(userDoc);
+                if (!snapshot.exists()) setDoc(userDoc, {});
+            }
         });
 
         return unsubscribe;
