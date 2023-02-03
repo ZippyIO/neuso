@@ -1,9 +1,9 @@
-import { signOut } from 'firebase/auth';
 import { useContext, useEffect, useState } from 'react';
-import EntryForm from './components/EntryForm';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import { AuthContext } from './context/AuthContext';
+import Dashboard from './pages/dashboard/Dashboard';
 import Login from './pages/login/Login';
-import { auth } from './utils/firebase';
 
 const App = () => {
     const userAuth = useContext(AuthContext);
@@ -14,21 +14,21 @@ const App = () => {
     }, [userAuth]);
 
     return (
-        <div className="App">
-            {!user && <Login />}
-            {user && (
-                <div>
-                    <EntryForm />
-                    <button
-                        onClick={() => signOut(auth)}
-                        className="p-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-md"
-                        type="button"
-                    >
-                        Sign out
-                    </button>
-                </div>
+        <BrowserRouter>
+            {!user && (
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                </Routes>
             )}
-        </div>
+            {user && (
+                <>
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                    </Routes>
+                </>
+            )}
+        </BrowserRouter>
     );
 };
 
