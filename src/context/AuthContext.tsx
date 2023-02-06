@@ -1,33 +1,52 @@
 import { User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { auth, firestore } from '../utils/firebase';
 
 type Props = {
     children: React.ReactNode;
 };
 
-export const AuthContext = createContext<User | null>(null);
+type AuthContextType = {
+    user: User | null | undefined;
+    loaded: boolean;
+};
+
+export const AuthContext = createContext<AuthContextType>({
+    user: undefined,
+    loaded: false,
+});
 
 export function useAuth() {
     return useContext(AuthContext);
 }
 
 export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User | null | undefined>(undefined);
+    const [loaded, setLoaded] = useState<boolean>(false);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
-            setUser(firebaseUser);
             if (firebaseUser) {
+                setUser(firebaseUser);
+                setLoaded(true);
                 const userDoc = doc(firestore, 'users', firebaseUser.uid);
                 const snapshot = await getDoc(userDoc);
                 if (!snapshot.exists()) setDoc(userDoc, {});
+            } else {
+                setUser(firebaseUser);
+                setLoaded(false);
             }
         });
 
         return unsubscribe;
     }, []);
 
-    return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+    const contextValue = useMemo(() => ({ user, loaded }), [user, loaded]);
+
+    return (
+        <AuthContext.Provider value={contextValue}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
