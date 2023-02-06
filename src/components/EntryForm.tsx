@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import { addDoc, collection, doc, Timestamp } from 'firebase/firestore';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import Datepicker from 'react-tailwindcss-datepicker';
 import { DateValueType } from 'react-tailwindcss-datepicker/dist/types';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { firestore } from '../utils/firebase';
 import {
     MoodRadioBad,
@@ -14,7 +14,7 @@ import {
 } from './MoodRadios';
 
 const EntryForm = () => {
-    const userAuth = useContext(AuthContext);
+    const { user } = useAuth();
     const [mood, setMood] = useState<number>();
     const [date, setDate] = useState<Date>(new Date());
     const [datePicker, setDatePicker] = useState<DateValueType>({
@@ -25,7 +25,7 @@ const EntryForm = () => {
     const handleFormSubmit = async (e: React.FormEvent<HTMLElement>) => {
         e.preventDefault();
 
-        const userDoc = doc(firestore, 'users', userAuth?.uid as string);
+        const userDoc = doc(firestore, 'users', user?.uid as string);
         await addDoc(collection(userDoc, 'mood'), {
             date: Timestamp.fromDate(date),
             mood,
