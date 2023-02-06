@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -13,5 +15,5 @@ module.exports = {
         },
         extend: {},
     },
-    plugins: [],
+    plugins: [require('tailwindcss-radix')()],
 };
