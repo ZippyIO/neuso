@@ -1,5 +1,5 @@
 import { query, collection, onSnapshot, orderBy } from 'firebase/firestore';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -11,7 +11,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { firestore } from '../utils/firebase';
 
 ChartJS.register(
@@ -24,7 +24,7 @@ ChartJS.register(
     Legend,
 );
 
-interface MoodDocs {
+type MoodDocs = {
     labels: Array<string>;
     datasets: [
         {
@@ -36,10 +36,10 @@ interface MoodDocs {
             tension: number;
         },
     ];
-}
+};
 
 const MoodChart = () => {
-    const userAuth = useContext(AuthContext);
+    const { user } = useAuth();
     const [moodData, setMoodData] = useState<MoodDocs | null>(null);
     const yAxesLabels = ['Horrible', 'Bad', 'Okay', 'Good', 'Amazing'];
     const options = {
@@ -82,37 +82,39 @@ const MoodChart = () => {
 
     useEffect(() => {
         function setUserData() {
-            const userCollectionRef = collection(
-                firestore,
-                'users',
-                userAuth?.uid as string,
-                'mood',
-            );
-            const q = query(userCollectionRef, orderBy('date', 'asc'));
-            onSnapshot(q, (querySnapshot) => {
-                const moodDocs: Array<number> = [];
-                const chartDocs: Array<string> = [];
-                querySnapshot.forEach((docu) => {
-                    moodDocs.push(docu.data().mood);
-                    chartDocs.push(
-                        docu.data().date.toDate().toLocaleDateString(),
-                    );
-                });
+            if (user) {
+                const userCollectionRef = collection(
+                    firestore,
+                    'users',
+                    user?.uid as string,
+                    'mood',
+                );
+                const q = query(userCollectionRef, orderBy('date', 'asc'));
+                onSnapshot(q, (querySnapshot) => {
+                    const moodDocs: Array<number> = [];
+                    const chartDocs: Array<string> = [];
+                    querySnapshot.forEach((docu) => {
+                        moodDocs.push(docu.data().mood);
+                        chartDocs.push(
+                            docu.data().date.toDate().toLocaleDateString(),
+                        );
+                    });
 
-                setMoodData({
-                    labels: [...chartDocs],
-                    datasets: [
-                        {
-                            label: 'Mood',
-                            data: [...moodDocs],
-                            fill: false,
-                            borderColor: 'rgb(50, 168, 82)',
-                            backgroundColor: 'rgb(50, 168, 82)',
-                            tension: 0.25,
-                        },
-                    ],
+                    setMoodData({
+                        labels: [...chartDocs],
+                        datasets: [
+                            {
+                                label: 'Mood',
+                                data: [...moodDocs],
+                                fill: false,
+                                borderColor: 'rgb(50, 168, 82)',
+                                backgroundColor: 'rgb(50, 168, 82)',
+                                tension: 0.25,
+                            },
+                        ],
+                    });
                 });
-            });
+            }
         }
 
         setUserData();
@@ -122,7 +124,7 @@ const MoodChart = () => {
     }, []);
 
     return (
-        <div className="relative m-4 h-96 rounded-md bg-gray-800 p-2">
+        <div className="m-2 h-96 rounded-md bg-gray-800 p-2">
             {moodData && <Line options={options} data={moodData} />}
         </div>
     );
