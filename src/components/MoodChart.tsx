@@ -109,7 +109,7 @@ const MoodChart = () => {
                                 fill: false,
                                 borderColor: 'rgb(50, 168, 82)',
                                 backgroundColor: 'rgb(50, 168, 82)',
-                                tension: 0.25,
+                                tension: 0,
                             },
                         ],
                     });
