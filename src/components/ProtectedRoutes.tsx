@@ -9,7 +9,7 @@ const ProtectedRoutes = () => {
         <>
             {loaded && user !== null && <Outlet />}
             {!loaded && user === null && (
-                <Navigate to="/login" state={{ from: location }} replace />
+                <Navigate to="/" state={{ from: location }} replace />
             )}
         </>
     );
