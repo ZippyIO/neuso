@@ -10,6 +10,6 @@
         @apply text-white;
     }
     body {
-        @apply bg-neutral-900;
+        @apply bg-dark-900;
     }
 }
