@@ -17,7 +17,7 @@ const MoodRadioHorrible = () => (
         />
         <label
             htmlFor="overall-1"
-            className="block cursor-pointer select-none rounded-xl border-4 border-transparent bg-zinc-700/70 p-2 text-center font-semibold hover:bg-zinc-700/40 active:bg-zinc-700/20 peer-checked:border-red-500 peer-checked:bg-zinc-700/70"
+            className="bg-dark-200 hover:bg-dark-400 active:bg-dark-400 peer-checked:bg-dark-400 block cursor-pointer select-none rounded-xl border-4 border-transparent p-2 text-center font-semibold peer-checked:border-red-500"
         >
             <RiEmotionSadFill size="50px" fill="#ef4444" />
         </label>
@@ -35,7 +35,7 @@ const MoodRadioBad = () => (
         />
         <label
             htmlFor="overall-2"
-            className="block cursor-pointer select-none rounded-xl border-4 border-transparent bg-zinc-700/70 p-2 text-center font-semibold hover:bg-zinc-700/40 active:bg-zinc-700/20 peer-checked:border-orange-500 peer-checked:bg-zinc-700/70"
+            className="bg-dark-200 hover:bg-dark-400 active:bg-dark-400 peer-checked:bg-dark-400 block cursor-pointer select-none rounded-xl border-4 border-transparent p-2 text-center font-semibold peer-checked:border-orange-500"
         >
             <RiEmotionUnhappyFill size="50px" fill="#f97316" />
         </label>
@@ -53,7 +53,7 @@ const MoodRadioOkay = () => (
         />
         <label
             htmlFor="overall-3"
-            className="block cursor-pointer select-none rounded-xl border-4 border-transparent bg-zinc-700/70 p-2 text-center font-semibold hover:bg-zinc-700/40 active:bg-zinc-700/20 peer-checked:border-yellow-500 peer-checked:bg-zinc-700/70"
+            className="bg-dark-200 hover:bg-dark-400 active:bg-dark-400 peer-checked:bg-dark-400 block cursor-pointer select-none rounded-xl border-4 border-transparent p-2 text-center font-semibold peer-checked:border-yellow-500"
         >
             <RiEmotionNormalFill size="50px" fill="#eab308" />
         </label>
@@ -71,7 +71,7 @@ const MoodRadioGood = () => (
         />
         <label
             htmlFor="overall-4"
-            className="block cursor-pointer select-none rounded-xl border-4 border-transparent bg-zinc-700/70 p-2 text-center font-semibold hover:bg-zinc-700/40 active:bg-zinc-700/20 peer-checked:border-lime-500 peer-checked:bg-zinc-700/70"
+            className="bg-dark-200 hover:bg-dark-400 active:bg-dark-400 peer-checked:bg-dark-400 block cursor-pointer select-none rounded-xl border-4 border-transparent p-2 text-center font-semibold peer-checked:border-lime-500"
         >
             <RiEmotionHappyFill size="50px" fill="#84cc16" />
         </label>
@@ -89,7 +89,7 @@ const MoodRadioExcellent = () => (
         />
         <label
             htmlFor="overall-5"
-            className="block cursor-pointer select-none rounded-xl border-4 border-transparent bg-zinc-700/70 p-2 text-center font-semibold hover:bg-zinc-700/40 active:bg-zinc-700/20 peer-checked:border-green-500 peer-checked:bg-zinc-700/70"
+            className="bg-dark-200 hover:bg-dark-400 active:bg-dark-400 peer-checked:bg-dark-400 block cursor-pointer select-none rounded-xl border-4 border-transparent p-2 text-center font-semibold peer-checked:border-green-500"
         >
             <RiEmotionLaughFill size="50px" fill="#22c55e" />
         </label>
