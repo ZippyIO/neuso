@@ -32,64 +32,72 @@ const SignUp = () => {
 
     return (
         <div className="flex h-screen w-screen items-center justify-center">
-            <div className="font-opensans justify- flex w-2/5 flex-col items-stretch justify-center gap-2 rounded-xl bg-gray-800 p-12 text-center shadow-xl">
+            <div className="h-42 bg-dark-700 flex flex-col items-stretch justify-center gap-2 rounded-xl p-12 text-center shadow-xl">
                 {error && (
-                    <div className="rounded-lg border-4 border-red-500 bg-zinc-800 p-1.5">
+                    <div className="bg-dark-800 rounded-lg border-4 border-red-500 p-1.5">
                         <p className="text-sm font-medium text-gray-100">
                             {error}
                         </p>
                     </div>
                 )}
                 <div>
-                    <h1 className="text-3xl font-extrabold text-gray-200">
-                        Neuso - Create Account
+                    <h1 className="font-montserrat text-4xl font-extrabold text-zinc-200">
+                        Neuso
                     </h1>
+                    <p className="font-montserrat text-xl font-semibold text-zinc-200">
+                        Create an account
+                    </p>
+                    <p className="text-zinc-300">Please enter your details.</p>
                 </div>
                 <form
                     action=""
                     onSubmit={handleSignUpForm}
-                    className="flex flex-col"
+                    className="flex flex-col gap-1"
                 >
                     <label
                         htmlFor="email"
-                        className="text-lg font-medium text-gray-200"
+                        className="ml-0.5 text-left text-sm font-medium text-zinc-300"
                     >
-                        Email:
+                        Email
                     </label>
                     <input
                         type="email"
                         name="email"
                         id="signup-email"
-                        className="rounded-lg bg-zinc-900 p-1"
+                        className="bg-dark-900 rounded-lg px-2 py-1"
+                        placeholder="Enter your email"
                     />
                     <label
                         htmlFor="password"
-                        className="text-lg font-medium text-gray-200"
+                        className="ml-0.5 text-left text-sm font-medium text-zinc-300"
                     >
-                        Password:
+                        Password
                     </label>
                     <input
                         type="password"
                         name="password"
                         id="signup-password"
-                        className="rounded-lg bg-zinc-900 p-1"
+                        className="bg-dark-900 rounded-lg px-2 py-1"
+                        placeholder="Create a password"
                     />
+                    <p className="ml-0.5 text-left text-sm text-zinc-400">
+                        Must be at least 6 characters.
+                    </p>
                     <button
-                        className="mt-2 flex h-10 items-center justify-center rounded-lg bg-emerald-500 p-1 text-inherit transition-colors hover:bg-emerald-600 active:bg-emerald-700"
+                        className="mt-2 flex h-10 items-center justify-center rounded-lg bg-green-600 p-1 text-inherit transition-colors hover:bg-green-700 active:bg-green-800"
                         type="submit"
                     >
                         Create Account
                     </button>
                 </form>
-                <p>OR</p>
                 <button
                     onClick={handleSignUpGoogle}
-                    className="m-1 flex h-10 items-center justify-center rounded-lg bg-blue-500 p-1 text-inherit transition-colors hover:bg-blue-600 active:bg-blue-700"
+                    className="flex h-10 w-full items-center justify-center rounded-lg bg-indigo-600 p-1 text-inherit transition-colors hover:bg-indigo-700 active:bg-indigo-800"
                     type="button"
                 >
                     <div className="flex items-center justify-center">
                         <RiGoogleFill size="20px" />
-                        Sign up with Google
+                        &nbsp;Sign up with Google
                         <div className="flex-1" />
                     </div>
                 </button>
