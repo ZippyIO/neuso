@@ -64,24 +64,22 @@ const EntryForm = () => {
             onSubmit={handleFormSubmit}
             className="m-4 flex  justify-center"
         >
-            <div className="flex flex-col gap-2 rounded-lg bg-zinc-800 p-4 text-center">
+            <div className="bg-dark-700 flex flex-col gap-2 rounded-lg p-4 text-center">
                 <Datepicker
-                    inputClassName="dark:bg-zinc-900/40"
-                    toggleClassName="dark:bg-emerald-600 rounded-md"
-                    primaryColor="emerald"
+                    inputClassName="dark:bg-dark-900 font-semibold text-base dark:text-neutral-300"
+                    toggleClassName="dark:bg-indigo-600 rounded-md"
+                    primaryColor="indigo"
                     value={datePicker}
                     useRange={false}
                     asSingle
                     onChange={handleDateChange}
                 />
-                <p className="text-3xl font-extrabold text-blue-500">
-                    {date.toLocaleDateString()}
-                </p>
+
                 <h3 className="text-2xl font-semibold text-zinc-200">
                     How was your day today?
                 </h3>
                 <div
-                    className="grid grid-cols-5 justify-center gap-2 rounded-xl bg-zinc-800 p-2 text-center"
+                    className=" grid grid-cols-5 justify-center gap-2 rounded-xl p-2 text-center"
                     onChange={handleMoodChange}
                 >
                     <MoodRadioHorrible />
@@ -91,22 +89,22 @@ const EntryForm = () => {
                     <MoodRadioExcellent />
                 </div>
                 <label htmlFor="entrytitle" className="flex flex-col">
-                    <span className=" font-semibold text-zinc-200">Title</span>
+                    <span className=" font-semibold text-zinc-400">Title</span>
                     <input
                         type="text"
                         name="entrytitle"
                         id="entrytitle"
-                        className="rounded-md bg-zinc-900/40 p-1.5"
+                        className="bg-dark-900 rounded-md p-1.5"
                     />
                 </label>
                 <label htmlFor="entrydescription" className="flex flex-col">
-                    <span className="font-semibold text-zinc-200">
+                    <span className="font-semibold text-zinc-400">
                         Description
                     </span>
                     <textarea
                         name="entrydescription"
                         id="entrydescription"
-                        className="rounded-md bg-zinc-900/40 p-1"
+                        className="bg-dark-900 rounded-md p-1"
                     />
                 </label>
                 <div className="flex flex-col gap-2">
@@ -114,7 +112,7 @@ const EntryForm = () => {
                         {selectedTags.map((tag) => (
                             <div
                                 key={tag}
-                                className="w-fit rounded-md bg-blue-500 px-1.5 py-0 text-sm font-medium text-zinc-100"
+                                className="font-montserrat w-fit rounded-md bg-indigo-500 px-1.5 py-0 text-center text-xs font-medium text-zinc-200"
                             >
                                 {tag}
                             </div>
@@ -130,7 +128,7 @@ const EntryForm = () => {
                 </div>
                 <button
                     type="submit"
-                    className="rounded-md bg-emerald-500 py-2 px-8 hover:bg-emerald-600 active:bg-emerald-700"
+                    className="rounded-md bg-indigo-500 py-2 px-8 hover:bg-indigo-600 active:bg-indigo-700"
                 >
                     Submit
                 </button>
