@@ -31,7 +31,10 @@ const Login = () => {
     }
 
     return (
-        <div className="flex h-screen w-screen items-center justify-center">
+        <div
+            data-testid="page-login"
+            className="flex h-screen w-screen items-center justify-center"
+        >
             <div className="h-42 bg-dark-700 flex flex-col items-stretch justify-center gap-2 rounded-xl p-12 text-center shadow-xl">
                 {error && (
                     <div className="bg-dark-800 rounded-lg border-4 border-red-500 p-1.5">
