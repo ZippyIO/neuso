@@ -5,7 +5,10 @@ import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 
 const Dashboard = () => (
-    <div className="grid h-screen grid-cols-[1fr,50vw,2fr] grid-rows-[48px,1fr]">
+    <div
+        data-testid="page-dashboard"
+        className="grid h-screen grid-cols-[1fr,50vw,2fr] grid-rows-[48px,1fr]"
+    >
         <div className="col-span-3">
             <Navbar />
         </div>
