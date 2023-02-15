@@ -20,12 +20,12 @@ const Dropdown = () => {
                         type="button"
                         className={clsx(
                             'inline-flex select-none items-center justify-center rounded-md p-2 text-sm font-medium',
-                            'bg-white text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-900',
+                            'dark:bg-dark-100 dark:hover:bg-dark-900 bg-white text-gray-700 hover:bg-gray-50 dark:text-gray-100',
                             'hover:bg-gray-50',
                             'focus:outline-none',
                             'group',
-                            'radix-state-open:bg-gray-50 dark:radix-state-open:bg-gray-900',
-                            'radix-state-on:bg-gray-50 dark:radix-state-on:bg-gray-900',
+                            'radix-state-open:bg-gray-50 dark:radix-state-open:bg-dark-900',
+                            'radix-state-on:bg-gray-50 dark:radix-state-on:bg-dark-900',
                             'radix-state-instant-open:bg-gray-50 radix-state-delayed-open:bg-gray-50',
                         )}
                     >
@@ -41,7 +41,7 @@ const Dropdown = () => {
                         className={clsx(
                             'radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down',
                             'w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56',
-                            'bg-white dark:bg-gray-800',
+                            'dark:bg-dark-600 bg-white',
                         )}
                     >
                         <DropdownMenuPrimitive.Item
@@ -55,14 +55,14 @@ const Dropdown = () => {
                                 {user?.displayName}
                             </span>
                         </DropdownMenuPrimitive.Item>
-                        <DropdownMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+                        <DropdownMenuPrimitive.Separator className="dark:bg-dark-50 my-1 h-px bg-gray-200" />
                         <DropdownMenuPrimitive.Group
                             onClick={() => setDropdownOpen(false)}
                         >
                             <DropdownMenuPrimitive.Item
                                 className={clsx(
                                     'flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none',
-                                    'text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900',
+                                    'dark:focus:bg-dark-800 text-gray-400 focus:bg-gray-50 dark:text-gray-500',
                                 )}
                             >
                                 <Link
@@ -75,7 +75,7 @@ const Dropdown = () => {
                             <DropdownMenuPrimitive.Item
                                 className={clsx(
                                     'flex cursor-default select-none items-center rounded-md px-2 py-2 text-xs outline-none',
-                                    'text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900',
+                                    'dark:focus:bg-dark-800 text-gray-400 focus:bg-gray-50 dark:text-gray-500',
                                 )}
                             >
                                 <Link
@@ -85,11 +85,11 @@ const Dropdown = () => {
                                     Settings
                                 </Link>
                             </DropdownMenuPrimitive.Item>
-                            <DropdownMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+                            <DropdownMenuPrimitive.Separator className="dark:bg-dark-50 my-1 h-px bg-gray-200" />
                             <DropdownMenuPrimitive.Item
                                 className={clsx(
                                     'flex cursor-default select-none items-center rounded-md text-xs outline-none',
-                                    'text-gray-400 focus:bg-gray-50 dark:text-gray-500 dark:focus:bg-gray-900',
+                                    'dark:focus:bg-dark-800 text-gray-400 focus:bg-gray-50 dark:text-gray-500',
                                 )}
                             >
                                 <button
