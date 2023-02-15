@@ -30,7 +30,7 @@ const EntryCards = () => {
                     user?.uid as string,
                     'mood',
                 );
-                const q = query(userCollectionRef, orderBy('date', 'asc'));
+                const q = query(userCollectionRef, orderBy('date', 'desc'));
                 onSnapshot(q, (querySnapshot) => {
                     const entryDocs: Array<EntryDocs> = [];
                     querySnapshot.forEach((doc) => {
