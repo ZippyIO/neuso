@@ -120,7 +120,7 @@ const EntryForm = () => {
                     </div>
                     <div>
                         <Select
-                            values={tags}
+                            options={tags}
                             selectedValues={selectedTags}
                             handleValueChange={handleSelectTag}
                         />
