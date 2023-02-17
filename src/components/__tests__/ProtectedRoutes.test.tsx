@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import { LocationDisplay } from '../../utils/test-utils';
+import { LocationDisplay } from '../../utils/testing/test-utils';
 import Dashboard from '../../pages/dashboard/Dashboard';
 import Home from '../../pages/home/Home';
 
