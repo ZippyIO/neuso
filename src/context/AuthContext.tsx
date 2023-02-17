@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { auth, firestore } from '../utils/firebase';
+import { auth, firestore } from '../services/firebase/firebase';
 
 type Props = {
     children: React.ReactNode;

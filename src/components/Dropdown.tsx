@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { RiSettings5Line, RiLogoutCircleLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { auth } from '../utils/firebase';
+import { auth } from '../services/firebase/firebase';
 import { useAuth } from '../context/AuthContext';
 
 const Dropdown = () => {

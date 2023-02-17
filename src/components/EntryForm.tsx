@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Datepicker from 'react-tailwindcss-datepicker';
 import { DateValueType } from 'react-tailwindcss-datepicker/dist/types';
 import { useAuth } from '../context/AuthContext';
-import { firestore } from '../utils/firebase';
+import { firestore } from '../services/firebase/firebase';
 import {
     MoodRadioBad,
     MoodRadioExcellent,

@@ -12,7 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useAuth } from '../context/AuthContext';
-import { firestore } from '../utils/firebase';
+import { firestore } from '../services/firebase/firebase';
 
 ChartJS.register(
     CategoryScale,

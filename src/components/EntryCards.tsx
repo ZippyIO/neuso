@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { firestore } from '../utils/firebase';
+import { firestore } from '../services/firebase/firebase';
 
 type EntryDocs = {
     date: Timestamp;

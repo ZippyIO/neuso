@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { RiGoogleFill } from 'react-icons/ri';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { auth, googleProvider } from '../../utils/firebase';
+import { auth, googleProvider } from '../../services/firebase/firebase';
 
 const SignUp = () => {
     const location = useLocation();
