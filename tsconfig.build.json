@@ -14,14 +14,10 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx",
-        "types": ["vitest/globals"]
+        "jsx": "react-jsx"
     },
     "include": ["src"],
-    "exclude": ["src/**/*.cy.tsx"],
-    "references": [
-        { "path": "./tsconfig.node.json" },
-        { "path": "./tsconfig.cypress.json" }
-    ],
+    "exclude": ["src/**/*.cy.*", "src/**/*.test.*", "src/**/*.spec.*"],
+    "references": [{ "path": "./tsconfig.node.json" }],
     "moduleResolution": ["node_modules", "node"]
 }
